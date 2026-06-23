@@ -14,8 +14,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'    => 'required|email',
-            'password' => 'required|min:6',
+            'email'    => 'required|email|max:150',
+            'password' => 'required|string|min:1',
         ];
     }
 
@@ -25,7 +25,6 @@ class LoginRequest extends FormRequest
             'email.required'    => 'El correo electrónico es obligatorio.',
             'email.email'       => 'Ingresa un correo electrónico válido.',
             'password.required' => 'La contraseña es obligatoria.',
-            'password.min'      => 'La contraseña debe tener al menos 6 caracteres.',
         ];
     }
 }

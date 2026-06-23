@@ -20,21 +20,21 @@
                 @csrf
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-medium mb-2">Correo electrónico</label>
-                    <input type="email" name="email" value="{{ old('email') }}"
+                    <label class="block text-gray-700 font-medium mb-2" for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}"
                         class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent @error('email') border-red-500 @enderror"
-                        placeholder="tu@correo.com">
+                        placeholder="tu@correo.com" required>
                     @error('email')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{!! $message !!}</p>
                     @enderror
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-medium mb-2">Contraseña</label>
+                    <label class="block text-gray-700 font-medium mb-2" for="password">Contraseña</label>
                     <div class="relative">
                         <input type="password" name="password" id="password"
                             class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent @error('password') border-red-500 @enderror"
-                            placeholder="********">
+                            placeholder="********" required minlength="8">
                         <button type="button" data-toggle-password="#password"
                             class="absolute right-3 top-3 text-gray-500 hover:text-gray-700">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>

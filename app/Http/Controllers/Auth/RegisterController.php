@@ -29,6 +29,6 @@ class RegisterController extends Controller
 
         return redirect()
             ->route('home')
-            ->with('success', '¡Bienvenido a GoWayki!');
+            ->with('success', "¡Bienvenido a GoWayki, {$user->name}!");
     }
 }

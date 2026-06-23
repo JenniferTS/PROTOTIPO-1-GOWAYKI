@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $ruta->nombre . ' — GoWayki')
-
-@push('styles')
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-@endpush
+@section('title', ($ruta->nombre ?? 'Ruta') . ' — GoWayki')
 
 @section('content')
     <div class="max-w-7xl mx-auto px-4 py-8">
@@ -17,21 +13,19 @@
         <div class="grid lg:grid-cols-2 gap-8">
             <div>
                 <div class="flex items-center space-x-3 mb-4">
-                    <span class="w-5 h-5 rounded-full" style="background-color: {{ $ruta->color_linea }}"></span>
+                    <span class="w-5 h-5 rounded-full" style="background-color: {{ $ruta->color_linea ?? '#E74C3C' }}"></span>
                     <h1 class="text-3xl font-bold text-gray-800">{{ $ruta->nombre }}</h1>
                 </div>
 
-                @if ($ruta->descripcion)
-                    <p class="text-gray-600 mb-6">{{ $ruta->descripcion }}</p>
-                @endif
+                <p class="text-gray-600 mb-6">{{ $ruta->descripcion ?? 'Sin descripción disponible.' }}</p>
 
                 <div class="grid grid-cols-3 gap-4 mb-8">
                     <div class="bg-white rounded-xl shadow-md p-4 text-center">
-                        <p class="text-2xl font-bold text-[#E74C3C]">{{ $ruta->tiempo_estimado_minutos }}</p>
+                        <p class="text-2xl font-bold text-[#E74C3C]">{{ $ruta->tiempo_estimado_minutos ?? '—' }}</p>
                         <p class="text-gray-500 text-sm">Minutos</p>
                     </div>
                     <div class="bg-white rounded-xl shadow-md p-4 text-center">
-                        <p class="text-2xl font-bold text-[#E74C3C]">{{ $ruta->costo_formateado }}</p>
+                        <p class="text-2xl font-bold text-[#E74C3C]">{{ $ruta->costo_formateado ?? 'S/ 0.00' }}</p>
                         <p class="text-gray-500 text-sm">Tarifa base</p>
                     </div>
                     <div class="bg-white rounded-xl shadow-md p-4 text-center">
@@ -49,61 +43,43 @@
                             <div class="w-3 h-3 bg-red-500 rounded-full"></div>
                         </div>
                         <div class="flex-1">
-                            <p class="font-semibold text-gray-800">{{ $ruta->origen }}</p>
+                            <p class="font-semibold text-gray-800">{{ $ruta->origen ?? '—' }}</p>
                             <p class="text-gray-400 text-sm my-4">Inicio del recorrido</p>
-                            <p class="font-semibold text-gray-800">{{ $ruta->destino }}</p>
+                            <p class="font-semibold text-gray-800">{{ $ruta->destino ?? '—' }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-xl shadow-md p-6 mt-6">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">Paraderos</h2>
-                    <div class="space-y-2">
-                        @foreach ($ruta->paraderos as $paradero)
-                            <div class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg">
-                                <span class="w-8 h-8 bg-[#FADBD8] text-[#E74C3C] rounded-full flex items-center justify-center font-bold text-sm">{{ $paradero->orden }}</span>
-                                <span class="text-gray-700">{{ $paradero->nombre }}</span>
-                            </div>
-                        @endforeach
-                    </div>
+                    @if ($ruta->paraderos->isEmpty())
+                        <p class="text-gray-500 italic">Aún no se han registrado paraderos para esta ruta.</p>
+                    @else
+                        <div class="space-y-2">
+                            @foreach ($ruta->paraderos as $paradero)
+                                <div class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg">
+                                    <span class="w-8 h-8 bg-[#FADBD8] text-[#E74C3C] rounded-full flex items-center justify-center font-bold text-sm">{{ $paradero->orden ?? '?' }}</span>
+                                    <span class="text-gray-700">{{ $paradero->nombre ?? 'Paradero sin nombre' }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
 
             <div>
-                <div id="mapa" class="w-full h-[500px] rounded-xl shadow-md"></div>
+                <div
+                    id="gowayki-mapa-ruta-root"
+                    data-ruta-id="{{ $ruta->id }}"
+                    data-modo="detalle"
+                    style="width: 100%; min-height: 600px;"
+                ></div>
             </div>
         </div>
     </div>
 @endsection
 
 @push('scripts')
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mapa = L.map('mapa').setView([-16.4090, -71.5375], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(mapa);
-
-            const paraderos = @json($ruta->paraderos);
-            const latlngs = [];
-
-            paraderos.forEach(function(p) {
-                const marker = L.marker([p.latitud, p.longitud]).addTo(mapa);
-                marker.bindPopup('<b>' + p.nombre + '</b><br>Paradero #' + p.orden);
-                latlngs.push([p.latitud, p.longitud]);
-            });
-
-            if (latlngs.length > 1) {
-                L.polyline(latlngs, {
-                    color: '{{ $ruta->color_linea }}',
-                    weight: 4,
-                    opacity: 0.8
-                }).addTo(mapa);
-
-                mapa.fitBounds(latlngs, { padding: [50, 50] });
-            }
-        });
-    </script>
+    @viteReactRefresh
+    @vite('resources/js/islands/mapa-ruta/index.jsx')
 @endpush

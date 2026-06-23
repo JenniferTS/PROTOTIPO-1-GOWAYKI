@@ -1,0 +1,23 @@
+{
+  "id": "ruta-canarios-sa",
+  "nombre": "Canarios S.A.",
+  "origen": { "nombre": "Mercado Avelino", "lat": -16.4027, "lng": -71.5337 },
+  "destino": { "nombre": "TECSUP Arequipa", "lat": -16.4419, "lng": -71.5142 },
+  "colorLinea": "#3498DB",
+  "costoSoles": 1.00,
+  "paraderos": [
+    { "id": 1, "nombre": "Mercado Avelino", "lat": -16.4027, "lng": -71.5337, "orden": 1, "fotoUrl": "/images/paraderos/mercado-avelino.jpg", "tiempoEstimadoMin": 0 },
+    { "id": 2, "nombre": "Av. Goyeneche", "lat": -16.4015, "lng": -71.5350, "orden": 2, "fotoUrl": "/images/paraderos/goyeneche.jpg", "tiempoEstimadoMin": 3 },
+    { "id": 3, "nombre": "Plaza de Armas", "lat": -16.3989, "lng": -71.5370, "orden": 3, "fotoUrl": "/images/paraderos/plaza-armas.jpg", "tiempoEstimadoMin": 7 },
+    { "id": 4, "nombre": "Puente Grau", "lat": -16.3975, "lng": -71.5395, "orden": 4, "fotoUrl": "/images/paraderos/puente-grau.jpg", "tiempoEstimadoMin": 10 },
+    { "id": 5, "nombre": "Av. Ejército - San Lázaro", "lat": -16.3998, "lng": -71.5420, "orden": 5, "fotoUrl": "/images/paraderos/san-lazaro.jpg", "tiempoEstimadoMin": 13 },
+    { "id": 6, "nombre": "Óvalo Lambramani", "lat": -16.4060, "lng": -71.5350, "orden": 6, "fotoUrl": "/images/paraderos/lambramani.jpg", "tiempoEstimadoMin": 16 },
+    { "id": 7, "nombre": "Av. Dolores", "lat": -16.4150, "lng": -71.5310, "orden": 7, "fotoUrl": "/images/paraderos/av-dolores.jpg", "tiempoEstimadoMin": 19 },
+    { "id": 8, "nombre": "Hospital Honorio Delgado", "lat": -16.4210, "lng": -71.5280, "orden": 8, "fotoUrl": "/images/paraderos/honorio-delgado.jpg", "tiempoEstimadoMin": 22 },
+    { "id": 9, "nombre": "Av. Independencia - Cruce", "lat": -16.4280, "lng": -71.5250, "orden": 9, "fotoUrl": "/images/paraderos/independencia.jpg", "tiempoEstimadoMin": 25 },
+    { "id": 10, "nombre": "Real Plaza Cayma", "lat": -16.4330, "lng": -71.5210, "orden": 10, "fotoUrl": "/images/paraderos/real-plaza.jpg", "tiempoEstimadoMin": 28 },
+    { "id": 11, "nombre": "Av. Aviación", "lat": -16.4370, "lng": -71.5180, "orden": 11, "fotoUrl": "/images/paraderos/av-aviacion.jpg", "tiempoEstimadoMin": 31 },
+    { "id": 12, "nombre": "Urb. La Estación", "lat": -16.4400, "lng": -71.5155, "orden": 12, "fotoUrl": "/images/paraderos/la-estacion.jpg", "tiempoEstimadoMin": 33 },
+    { "id": 13, "nombre": "TECSUP Arequipa", "lat": -16.4419, "lng": -71.5142, "orden": 13, "fotoUrl": "/images/paraderos/tecsup.jpg", "tiempoEstimadoMin": 35 }
+  ]
+}

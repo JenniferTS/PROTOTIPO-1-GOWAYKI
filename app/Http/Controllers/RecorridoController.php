@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RecorridoRequest;
 use App\Models\Recorrido;
 use App\Services\RecorridoService;
 use App\Services\RutaService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RecorridoController extends Controller
 {
@@ -21,6 +23,11 @@ class RecorridoController extends Controller
         $resultado = null;
 
         if ($request->filled('origen') && $request->filled('destino')) {
+            $request->validate([
+                'origen'  => 'required|string|max:150',
+                'destino' => 'required|string|max:150|different:origen',
+            ]);
+
             $resultado = $this->recorridoService->planificar($request->origen, $request->destino);
         }
 
@@ -30,16 +37,14 @@ class RecorridoController extends Controller
         return view('recorridos.planificar', compact('resultado', 'request', 'origenes', 'destinos'));
     }
 
-    public function guardar(Request $request): RedirectResponse
+    public function guardar(RecorridoRequest $request): RedirectResponse
     {
-        $request->validate([
-            'origen'  => 'required|string',
-            'destino' => 'required|string',
-            'ruta_id' => 'nullable|exists:rutas,id',
-            'notas'   => 'nullable|string|max:500',
-        ]);
-
-        $recorrido = $this->recorridoService->guardar($request->all(), auth()->user());
+        try {
+            $recorrido = $this->recorridoService->guardar($request->validated(), auth()->user());
+        } catch (\Throwable $e) {
+            Log::error('Error al guardar recorrido: ' . $e->getMessage(), ['exception' => $e]);
+            return back()->with('error', 'No pudimos guardar tu recorrido. Intenta nuevamente.')->withInput();
+        }
 
         return redirect()
             ->route('recorridos.miRuta')

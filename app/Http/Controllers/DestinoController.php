@@ -7,6 +7,7 @@ use App\Services\DestinoService;
 use App\Services\RutaService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DestinoController extends Controller
 {
@@ -29,7 +30,12 @@ class DestinoController extends Controller
         try {
             $destino = $this->destinoService->obtenerPorId($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            abort(404, 'Destino no encontrado');
+            abort(404);
+        } catch (\Throwable $e) {
+            Log::error('Error cargando detalle de destino: ' . $e->getMessage(), ['exception' => $e]);
+            return view('rutas.error', [
+                'mensaje' => 'No pudimos cargar el detalle de este destino.',
+            ]);
         }
 
         $visitado = auth()->check() ? $destino->visitadoPor(auth()->user()) : false;

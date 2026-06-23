@@ -1,0 +1,9 @@
+.gowayki-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.gowayki-marker > div {
+  background: transparent !important;
+  border: none !important;
+}

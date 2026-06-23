@@ -15,13 +15,14 @@ class RecorridoService
 
     public function planificar(string $origen, string $destino): array
     {
-        $rutas = $this->rutaService->buscarRutas($origen, $destino);
+        $resultado = $this->rutaService->buscarRutas($origen, $destino);
 
         return [
-            'rutas' => $rutas,
+            'rutas' => $resultado['rutas'],
             'origen' => $origen,
             'destino' => $destino,
-            'total_opciones' => $rutas->count(),
+            'total_opciones' => $resultado['rutas']->count(),
+            'degradado' => $resultado['degradado'],
         ];
     }
 

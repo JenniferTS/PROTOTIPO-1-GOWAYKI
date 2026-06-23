@@ -14,10 +14,10 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(RutaService::class);
-        $this->app->bind(DestinoService::class);
-        $this->app->bind(RecorridoService::class);
-        $this->app->bind(ProgresoService::class);
+        $this->app->singleton(RutaService::class);
+        $this->app->singleton(DestinoService::class);
+        $this->app->singleton(RecorridoService::class);
+        $this->app->singleton(ProgresoService::class);
     }
 
     public function boot(): void
