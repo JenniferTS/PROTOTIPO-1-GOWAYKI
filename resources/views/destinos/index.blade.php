@@ -12,12 +12,12 @@
                 <div>
                     <label class="block text-gray-700 font-medium mb-1">Buscar</label>
                     <input type="text" name="q" value="{{ $filtros['q'] ?? '' }}"
-                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent"
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent"
                         placeholder="Nombre o descripción">
                 </div>
                 <div>
                     <label class="block text-gray-700 font-medium mb-1">Categoría</label>
-                    <select name="categoria" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent">
+                    <select name="categoria" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent">
                         <option value="">Todas</option>
                         @foreach ($categorias as $cat)
                             <option value="{{ $cat }}" {{ ($filtros['categoria'] ?? '') === $cat ? 'selected' : '' }}>
@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <label class="block text-gray-700 font-medium mb-1">Distrito</label>
-                    <select name="distrito" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent">
+                    <select name="distrito" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent">
                         <option value="">Todos</option>
                         @foreach ($distritos as $dist)
                             <option value="{{ $dist }}" {{ ($filtros['distrito'] ?? '') === $dist ? 'selected' : '' }}>
@@ -38,7 +38,7 @@
                     </select>
                 </div>
                 <div class="flex items-end">
-                    <button type="submit" class="w-full bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-2 px-6 rounded-lg transition">
+                    <button type="submit" class="w-full bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-2 px-6 rounded-lg transition">
                         Filtrar
                     </button>
                 </div>
@@ -60,7 +60,7 @@
                 @endif
                 @if (($filtros['q'] ?? '') !== '' || ($filtros['categoria'] ?? '') !== '' || ($filtros['distrito'] ?? '') !== '')
                     <div class="mt-6">
-                        <a href="{{ route('destinos.index') }}" class="inline-block bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold px-6 py-2 rounded-lg transition">
+                        <a href="{{ route('destinos.index') }}" class="inline-block bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold px-6 py-2 rounded-lg transition">
                             Ver todos
                         </a>
                     </div>
@@ -78,3 +78,4 @@
         @endif
     </div>
 @endsection
+

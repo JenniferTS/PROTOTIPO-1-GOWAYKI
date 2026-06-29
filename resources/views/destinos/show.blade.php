@@ -5,7 +5,7 @@
 @section('content')
     <div class="max-w-7xl mx-auto px-4 py-8">
         <div class="flex items-center space-x-2 text-gray-500 mb-4">
-            <a href="{{ route('destinos.index') }}" class="hover:text-[#E74C3C]">Destinos</a>
+            <a href="{{ route('destinos.index') }}" class="hover:text-[#F83A34]">Destinos</a>
             <span>/</span>
             <span class="text-gray-800 font-semibold">{{ $destino->nombre }}</span>
         </div>
@@ -20,7 +20,7 @@
                         <p class="text-gray-500 mt-1">{{ $destino->distrito ?? '—' }}</p>
                     </div>
                     <div class="text-right">
-                        <span class="inline-block bg-red-100 text-red-700 text-sm font-semibold px-3 py-1 rounded-full">
+                        <span class="inline-block bg-[#FFE7E5] text-red-700 text-sm font-semibold px-3 py-1 rounded-full">
                             {{ $destino->categoria ? ucfirst($destino->categoria) : 'Sin categoría' }}
                         </span>
                         @if (($destino->nombre ?? '') === 'Plaza de Armas de Cayma')
@@ -58,7 +58,7 @@
                             <form method="POST" action="{{ route('perfil.desmarcar', $destino->id) }}" class="mt-3">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:underline text-sm">Desmarcar</button>
+                                <button type="submit" class="text-[#F83A34] hover:underline text-sm">Desmarcar</button>
                             </form>
                         </div>
                     @else
@@ -70,19 +70,19 @@
                                 <div class="mb-3">
                                     <label class="block text-gray-600 text-sm mb-1">Fecha de visita</label>
                                     <input type="date" name="fecha_visita" value="{{ date('Y-m-d') }}"
-                                        class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent @error('fecha_visita') border-red-500 @enderror">
+                                        class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent @error('fecha_visita') border-red-500 @enderror">
                                     @error('fecha_visita')
                                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-gray-600 text-sm mb-1">Notas</label>
-                                    <textarea name="notas" rows="2" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent @error('notas') border-red-500 @enderror" placeholder="¿Qué te pareció?">{{ old('notas') }}</textarea>
+                                    <textarea name="notas" rows="2" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent @error('notas') border-red-500 @enderror" placeholder="¿Qué te pareció?">{{ old('notas') }}</textarea>
                                     @error('notas')
                                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <button type="submit" class="w-full bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-2 rounded-lg transition">
+                                <button type="submit" class="w-full bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-2 rounded-lg transition">
                                     Marcar como visitado
                                 </button>
                             </form>
@@ -91,7 +91,7 @@
                 @else
                     <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
                         <p class="text-gray-700">Inicia sesión para registrar tu visita.</p>
-                        <a href="{{ route('login') }}" class="inline-block mt-3 bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-2 px-6 rounded-lg transition">Ingresar</a>
+                        <a href="{{ route('login') }}" class="inline-block mt-3 bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-2 px-6 rounded-lg transition">Ingresar</a>
                     </div>
                 @endauth
             </div>
@@ -119,3 +119,4 @@
         });
     </script>
 @endpush
+

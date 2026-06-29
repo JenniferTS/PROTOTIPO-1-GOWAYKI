@@ -11,21 +11,68 @@
 }
 
 :root {
-    --color-gowayki-primary: #E74C3C;
-    --color-gowayki-dark:    #C0392B;
-    --color-gowayki-light:   #FADBD8;
+    --color-gowayki-primary: #F83A34;
+    --color-gowayki-dark:    #D82027;
+    --color-gowayki-hover:   #E92F2F;
+    --color-gowayki-light:   #FFE7E5;
+    --color-gowayki-soft:    #FFF3F2;
+    --color-gowayki-black:   #111827;
 }
 
+/* Botón principal */
 .btn-gowayki {
-    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200;
+    background-color: var(--color-gowayki-primary);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.875rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 12px 24px rgba(248, 58, 52, 0.22);
 }
 
+.btn-gowayki:hover {
+    background-color: var(--color-gowayki-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(248, 58, 52, 0.28);
+}
+
+/* Cards */
 .card-gowayki {
     @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden;
 }
 
+/* Navbar */
 .navbar-gowayki {
-    @apply bg-red-600 text-white;
+    background-color: var(--color-gowayki-primary);
+    color: #ffffff;
+}
+
+/* Textos de marca */
+.text-gowayki {
+    color: var(--color-gowayki-primary);
+}
+
+/* Fondos de marca */
+.bg-gowayki {
+    background-color: var(--color-gowayki-primary);
+}
+
+.bg-gowayki-dark {
+    background-color: var(--color-gowayki-dark);
+}
+
+.bg-gowayki-soft {
+    background-color: var(--color-gowayki-soft);
+}
+
+/* Bordes y focus */
+.border-gowayki {
+    border-color: var(--color-gowayki-primary);
+}
+
+.focus-gowayki:focus {
+    border-color: var(--color-gowayki-primary);
+    box-shadow: 0 0 0 4px rgba(248, 58, 52, 0.14);
 }
 
 /* ── Hero Slider ── */
@@ -47,4 +94,194 @@
   #slider-thumbnails {
     display: none;
   }
+}
+
+
+/* ─────────────────────────────
+   GoWayki Auth Animated Background
+   ───────────────────────────── */
+
+.gowayki-auth-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(248, 58, 52, 0.13), transparent 30%),
+        radial-gradient(circle at 88% 78%, rgba(248, 58, 52, 0.11), transparent 34%),
+        linear-gradient(135deg, #f8f8fa 0%, #ffffff 45%, #fff5f4 100%);
+}
+
+.gowayki-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.42;
+    animation: gowaykiFloat 12s ease-in-out infinite alternate;
+}
+
+.gowayki-blob-1 {
+    width: 320px;
+    height: 320px;
+    top: -120px;
+    left: -90px;
+    background: rgba(248, 58, 52, 0.28);
+}
+
+.gowayki-blob-2 {
+    width: 420px;
+    height: 420px;
+    right: -150px;
+    bottom: -150px;
+    background: rgba(248, 58, 52, 0.20);
+    animation-delay: 1.4s;
+}
+
+.gowayki-blob-3 {
+    width: 260px;
+    height: 260px;
+    top: 35%;
+    right: 20%;
+    background: rgba(255, 170, 145, 0.18);
+    animation-delay: 0.8s;
+}
+
+.gowayki-route-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.30;
+}
+
+.route-line {
+    fill: none;
+    stroke: rgba(248, 58, 52, 0.20);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 14 22;
+    animation: gowaykiRouteMove 24s linear infinite;
+}
+
+.route-line-2 {
+    stroke: rgba(216, 32, 39, 0.14);
+    stroke-width: 2;
+    animation-duration: 30s;
+}
+
+.route-line-3 {
+    stroke: rgba(248, 58, 52, 0.10);
+    stroke-width: 2;
+    animation-duration: 34s;
+}
+
+.gowayki-map-pin {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    background: #ffffff;
+    border: 3px solid #F83A34;
+    box-shadow: 0 10px 24px rgba(248, 58, 52, 0.18);
+    opacity: 0.42;
+    animation: gowaykiPulse 3.8s ease-in-out infinite;
+}
+
+.pin-1 {
+    left: 19%;
+    top: 28%;
+}
+
+.pin-2 {
+    right: 22%;
+    bottom: 27%;
+    animation-delay: 1.1s;
+}
+
+.pin-3 {
+    left: 68%;
+    top: 18%;
+    animation-delay: 1.9s;
+}
+
+.gowayki-route-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #F83A34;
+    box-shadow: 0 0 0 8px rgba(248, 58, 52, 0.08);
+    opacity: 0.36;
+    animation: gowaykiSoftMove 9s ease-in-out infinite alternate;
+}
+
+.dot-1 {
+    left: 12%;
+    bottom: 30%;
+}
+
+.dot-2 {
+    right: 18%;
+    top: 24%;
+    animation-delay: 1.6s;
+}
+
+.dot-3 {
+    right: 34%;
+    bottom: 38%;
+    animation-delay: 2.4s;
+}
+
+@keyframes gowaykiFloat {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        transform: translate3d(24px, -18px, 0) scale(1.06);
+    }
+}
+
+@keyframes gowaykiRouteMove {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -260;
+    }
+}
+
+@keyframes gowaykiSoftMove {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        transform: translate3d(22px, -14px, 0) scale(1.08);
+    }
+}
+
+@keyframes gowaykiPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.34;
+    }
+    50% {
+        transform: scale(1.18);
+        opacity: 0.66;
+    }
+}
+
+@media (max-width: 640px) {
+    .gowayki-route-map {
+        opacity: 0.18;
+    }
+
+    .gowayki-map-pin,
+    .gowayki-route-dot {
+        opacity: 0.28;
+    }
+
+    .gowayki-blob {
+        opacity: 0.32;
+    }
 }

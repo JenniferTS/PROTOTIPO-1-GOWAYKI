@@ -9,8 +9,9 @@
         </svg>
         <h1 class="text-2xl font-bold text-gray-800 mb-4">Algo salió mal</h1>
         <p class="text-gray-600 mb-8 max-w-md mx-auto">{{ $mensaje ?? 'No pudimos completar esta acción. Intenta nuevamente en unos minutos.' }}</p>
-        <a href="{{ route('rutas.index') }}" class="inline-block bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold px-8 py-3 rounded-lg transition">
+        <a href="{{ route('rutas.index') }}" class="inline-block bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold px-8 py-3 rounded-lg transition">
             Volver a rutas
         </a>
     </div>
 @endsection
+

@@ -10,7 +10,7 @@
         @if ($recorridos->isEmpty())
             <div class="text-center py-16 bg-white rounded-xl shadow-md">
                 <p class="text-gray-500 text-lg mb-4">Aún no has guardado ningún recorrido.</p>
-                <a href="{{ route('recorridos.planificar') }}" class="bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-3 px-8 rounded-lg transition">
+                <a href="{{ route('recorridos.planificar') }}" class="bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-3 px-8 rounded-lg transition">
                     Planificar un recorrido
                 </a>
             </div>
@@ -23,7 +23,7 @@
                                 <h3 class="text-xl font-bold text-gray-800">{{ $recorrido->nombre }}</h3>
                                 <div class="flex items-center space-x-2 text-gray-600 mt-2">
                                     <span class="font-semibold">{{ $recorrido->origen }}</span>
-                                    <svg class="w-4 h-4 text-[#E74C3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    <svg class="w-4 h-4 text-[#F83A34]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                     <span class="font-semibold">{{ $recorrido->destino }}</span>
                                 </div>
                                 @if ($recorrido->ruta)
@@ -48,3 +48,4 @@
         @endif
     </div>
 @endsection
+

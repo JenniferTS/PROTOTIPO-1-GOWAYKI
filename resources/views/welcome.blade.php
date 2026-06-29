@@ -10,3 +10,6 @@
     <p>Redirigiendo a <a href="{{ route('home') }}">GoWayki</a>...</p>
 </body>
 </html>
+
+
+

@@ -19,7 +19,7 @@
                 <div>
                     <label class="block text-gray-700 font-medium mb-1" for="origen">Punto de partida</label>
                     <input type="text" id="origen" name="origen" value="{{ $request->origen ?? '' }}"
-                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent @error('origen') border-red-500 @enderror"
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent @error('origen') border-red-500 @enderror"
                         placeholder="Ej: Plaza de Armas" required minlength="2">
                     @error('origen')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -28,14 +28,14 @@
                 <div>
                     <label class="block text-gray-700 font-medium mb-1" for="destino">Destino</label>
                     <input type="text" id="destino" name="destino" value="{{ $request->destino ?? '' }}"
-                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#E74C3C] focus:border-transparent @error('destino') border-red-500 @enderror"
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#F83A34] focus:border-transparent @error('destino') border-red-500 @enderror"
                         placeholder="Ej: TECSUP" required minlength="2">
                     @error('destino')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="flex items-end">
-                    <button type="submit" class="w-full bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-2 px-6 rounded-lg transition">
+                    <button type="submit" class="w-full bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-2 px-6 rounded-lg transition">
                         Buscar
                     </button>
                 </div>
@@ -43,7 +43,7 @@
         </form>
 
         @if ($errors->any() && !$errors->has('origen') && !$errors->has('destino'))
-            <div class="bg-red-100 border-l-4 border-red-500 text-red-800 px-4 py-3 rounded-lg mb-6">
+            <div class="bg-[#FFE7E5] border-l-4 border-red-500 text-[#D82027] px-4 py-3 rounded-lg mb-6">
                 {{ $errors->first() }}
             </div>
         @endif
@@ -59,10 +59,10 @@
                     <p class="text-gray-400 mt-2">Vuelve más tarde o explora destinos turísticos.</p>
                 @endif
                 <div class="mt-6 flex justify-center space-x-4">
-                    <a href="{{ route('rutas.index') }}" class="bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold px-6 py-2 rounded-lg transition">
+                    <a href="{{ route('rutas.index') }}" class="bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold px-6 py-2 rounded-lg transition">
                         Ver todas las rutas
                     </a>
-                    <a href="{{ route('destinos.index') }}" class="border border-[#E74C3C] text-[#E74C3C] hover:bg-[#E74C3C] hover:text-white font-semibold px-6 py-2 rounded-lg transition">
+                    <a href="{{ route('destinos.index') }}" class="border border-[#F83A34] text-[#F83A34] hover:bg-[#F83A34] hover:text-white font-semibold px-6 py-2 rounded-lg transition">
                         Explorar destinos
                     </a>
                 </div>
@@ -73,17 +73,17 @@
                     <a href="{{ route('rutas.show', $ruta->id) }}" class="card-gowayki group block">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-xl font-bold text-gray-800 group-hover:text-[#E74C3C] transition">{{ $ruta->nombre }}</h3>
-                                <span class="w-4 h-4 rounded-full" style="background-color: {{ $ruta->color_linea ?? '#E74C3C' }}"></span>
+                                <h3 class="text-xl font-bold text-gray-800 group-hover:text-[#F83A34] transition">{{ $ruta->nombre }}</h3>
+                                <span class="w-4 h-4 rounded-full" style="background-color: {{ $ruta->color_linea ?? '#F83A34' }}"></span>
                             </div>
                             <div class="flex items-center space-x-2 text-gray-600 mb-3">
                                 <span class="font-semibold">{{ $ruta->origen }}</span>
-                                <svg class="w-4 h-4 text-[#E74C3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                <svg class="w-4 h-4 text-[#F83A34]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                 <span class="font-semibold">{{ $ruta->destino }}</span>
                             </div>
                             <div class="flex items-center space-x-4 text-sm text-gray-500">
                                 <span>⏱ {{ $ruta->tiempo_estimado_minutos ?? '—' }} min</span>
-                                <span class="font-semibold text-[#E74C3C]">{{ $ruta->costo_formateado ?? 'S/ 0.00' }}</span>
+                                <span class="font-semibold text-[#F83A34]">{{ $ruta->costo_formateado ?? 'S/ 0.00' }}</span>
                                 <span>{{ $ruta->paraderos->count() }} paraderos</span>
                             </div>
                         </div>
@@ -93,3 +93,4 @@
         @endif
     </div>
 @endsection
+

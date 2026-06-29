@@ -16,7 +16,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="{{ route('home') }}" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold tracking-tight">GoWayki</span>
+                    <a href="{{ url('/') }}" class="flex items-center gap-3">
+    <img src="{{ asset('images/brand/gowayki-logo-white.png') }}" alt="GoWayki" class="h-11 w-auto object-contain">
+</a>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-6">
@@ -32,20 +34,20 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="{{ route('recorridos.miRuta') }}" class="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-t-lg">Mi Ruta</a>
-                                <a href="{{ route('perfil.progreso') }}" class="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600">Mi Progreso</a>
+                                <a href="{{ route('recorridos.miRuta') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34] rounded-t-lg">Mi Ruta</a>
+                                <a href="{{ route('perfil.progreso') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34]">Mi Progreso</a>
                                 @can('admin')
-                                    <a href="{{ route('admin.rutas.index') }}" class="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600">Admin</a>
+                                    <a href="{{ route('admin.rutas.index') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34]">Admin</a>
                                 @endcan
                                 <form method="POST" action="{{ route('logout') }}" class="block">
                                     @csrf
-                                    <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-b-lg">Salir</button>
+                                    <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34] rounded-b-lg">Salir</button>
                                 </form>
                             </div>
                         </div>
                     @else
                         <a href="{{ route('login') }}" class="text-white hover:text-gray-200 font-medium transition">Ingresar</a>
-                        <a href="{{ route('register') }}" class="bg-white text-red-600 hover:bg-gray-100 font-semibold px-4 py-2 rounded-lg transition">Crear Cuenta</a>
+                        <a href="{{ route('register') }}" class="bg-white text-[#F83A34] hover:bg-gray-100 font-semibold px-4 py-2 rounded-lg transition">Crear Cuenta</a>
                     @endauth
                 </div>
 
@@ -84,7 +86,7 @@
     @endif
 
     @if (session('error'))
-        <div id="flash-message" class="bg-red-500 text-white px-4 py-3 text-center font-medium">
+        <div id="flash-message" class="bg-[#FFF3F2]0 text-white px-4 py-3 text-center font-medium">
             {{ session('error') }}
         </div>
     @endif
@@ -124,5 +126,10 @@
     </footer>
 
     @stack('scripts')
+    @include('partials.footer')
 </body>
 </html>
+
+
+
+

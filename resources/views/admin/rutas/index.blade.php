@@ -9,7 +9,7 @@
                 <h1 class="text-3xl font-bold text-gray-800">Administrar Rutas</h1>
                 <p class="text-gray-600">Gestión de rutas de transporte.</p>
             </div>
-            <a href="{{ route('admin.rutas.create') }}" class="bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-2 px-6 rounded-lg transition">
+            <a href="{{ route('admin.rutas.create') }}" class="bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-2 px-6 rounded-lg transition">
                 Nueva Ruta
             </a>
         </div>
@@ -39,7 +39,7 @@
                                 @if ($ruta->activa)
                                     <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Sí</span>
                                 @else
-                                    <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded-full">No</span>
+                                    <span class="bg-[#FFE7E5] text-red-700 text-xs font-semibold px-2 py-1 rounded-full">No</span>
                                 @endif
                             </td>
                             <td class="px-6 py-4 text-right space-x-2">
@@ -47,7 +47,7 @@
                                 <form method="POST" action="{{ route('admin.rutas.destroy', $ruta) }}" class="inline" onsubmit="return confirm('¿Eliminar esta ruta?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:text-red-800 font-medium text-sm">Eliminar</button>
+                                    <button type="submit" class="text-[#F83A34] hover:text-[#D82027] font-medium text-sm">Eliminar</button>
                                 </form>
                             </td>
                         </tr>
@@ -57,3 +57,4 @@
         </div>
     </div>
 @endsection
+

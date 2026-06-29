@@ -10,8 +10,9 @@
         <h1 class="text-6xl font-bold text-gray-300 mb-4">404</h1>
         <p class="text-xl text-gray-600 mb-2">Página no encontrada</p>
         <p class="text-gray-500 mb-8">La página que buscas no existe o ha sido movida.</p>
-        <a href="{{ route('home') }}" class="inline-block bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold px-8 py-3 rounded-lg transition">
+        <a href="{{ route('home') }}" class="inline-block bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold px-8 py-3 rounded-lg transition">
             Volver al inicio
         </a>
     </div>
 @endsection
+

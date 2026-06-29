@@ -12,7 +12,7 @@
                 <svg class="w-16 h-16 mx-auto text-red-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <p class="text-gray-500 text-lg font-medium">No pudimos cargar tu progreso.</p>
                 <p class="text-gray-400 mt-2">Intenta nuevamente en unos momentos.</p>
-                <a href="{{ route('perfil.progreso') }}" class="inline-block mt-6 bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold px-6 py-2 rounded-lg transition">
+                <a href="{{ route('perfil.progreso') }}" class="inline-block mt-6 bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold px-6 py-2 rounded-lg transition">
                     Reintentar
                 </a>
             </div>
@@ -21,32 +21,32 @@
                 <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 <p class="text-gray-500 text-lg font-medium">¡Aún no has explorado ningún destino!</p>
                 <p class="text-gray-400 mt-2">Comienza tu aventura visitando los destinos turísticos de Arequipa.</p>
-                <a href="{{ route('destinos.index') }}" class="inline-block mt-6 bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold px-6 py-3 rounded-lg transition">
+                <a href="{{ route('destinos.index') }}" class="inline-block mt-6 bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold px-6 py-3 rounded-lg transition">
                     Explorar destinos
                 </a>
             </div>
         @else
             <div class="bg-white rounded-xl shadow-md p-8 mb-8">
                 <div class="text-center mb-6">
-                    <span class="text-5xl font-bold text-[#E74C3C]">{{ $progreso['porcentaje'] }}%</span>
+                    <span class="text-5xl font-bold text-[#F83A34]">{{ $progreso['porcentaje'] }}%</span>
                     <p class="text-gray-500 mt-2">de exploración completada</p>
                 </div>
 
                 <div class="w-full bg-gray-200 rounded-full h-8 mb-4">
-                    <div class="bg-[#E74C3C] h-8 rounded-full transition-all duration-700 flex items-center justify-end pr-3 text-white font-bold text-sm" style="width: {{ $progreso['porcentaje'] }}%">
+                    <div class="bg-[#F83A34] h-8 rounded-full transition-all duration-700 flex items-center justify-end pr-3 text-white font-bold text-sm" style="width: {{ $progreso['porcentaje'] }}%">
                         {{ $progreso['porcentaje'] }}%
                     </div>
                 </div>
 
                 <p class="text-center text-lg text-gray-700">
-                    Has visitado <span class="font-bold text-[#E74C3C]">{{ $progreso['visitados'] }}</span> de <span class="font-bold">{{ $progreso['total'] }}</span> destinos
+                    Has visitado <span class="font-bold text-[#F83A34]">{{ $progreso['visitados'] }}</span> de <span class="font-bold">{{ $progreso['total'] }}</span> destinos
                 </p>
 
                 @if ($progreso['proximo'])
-                    <div class="mt-6 p-6 bg-red-50 rounded-xl border border-red-200 text-center">
+                    <div class="mt-6 p-6 bg-[#FFF3F2] rounded-xl border border-[#FFD0CC] text-center">
                         <p class="text-gray-700">Próximo destino sugerido:</p>
-                        <p class="text-2xl font-bold text-[#E74C3C] mt-1">{{ $progreso['proximo']->nombre }}</p>
-                        <a href="{{ route('destinos.show', $progreso['proximo']->id) }}" class="inline-block mt-3 bg-[#E74C3C] hover:bg-[#C0392B] text-white font-semibold py-2 px-6 rounded-lg transition">
+                        <p class="text-2xl font-bold text-[#F83A34] mt-1">{{ $progreso['proximo']->nombre }}</p>
+                        <a href="{{ route('destinos.show', $progreso['proximo']->id) }}" class="inline-block mt-3 bg-[#F83A34] hover:bg-[#D82027] text-white font-semibold py-2 px-6 rounded-lg transition">
                             Ir a explorar
                         </a>
                     </div>
@@ -72,7 +72,7 @@
                             @endif
                         </div>
                         <div class="p-4">
-                            <h3 class="font-bold text-gray-800 group-hover:text-[#E74C3C] transition">{{ $destino->nombre ?? '—' }}</h3>
+                            <h3 class="font-bold text-gray-800 group-hover:text-[#F83A34] transition">{{ $destino->nombre ?? '—' }}</h3>
                             <p class="text-sm text-gray-500">{{ $destino->distrito ?? '—' }}</p>
                         </div>
                     </a>
@@ -107,3 +107,4 @@
         @endif
     </div>
 @endsection
+
