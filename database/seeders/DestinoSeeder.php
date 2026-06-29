@@ -18,7 +18,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Cayma',
                 'latitud' => -16.3647,
                 'longitud' => -71.5575,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Cayma_plaza.jpg/1280px-Cayma_plaza.jpg',
+                'imagen_url' => 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Plaza%20mayor%20de%20Cayma%20%28Plaza%20de%20Armas%29.jpg?width=1600',
                 'calificacion' => 4.70,
             ],
             [
@@ -29,7 +29,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Arequipa',
                 'latitud' => -16.3989,
                 'longitud' => -71.5370,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Plaza_de_Armas_Arequipa.jpg/1280px-Plaza_de_Armas_Arequipa.jpg',
+                'imagen_url' => 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Plaza%20de%20Arequipa.jpg?width=1600',
                 'calificacion' => 4.80,
             ],
             [
@@ -40,7 +40,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Arequipa',
                 'latitud' => -16.3960,
                 'longitud' => -71.5369,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Monasterio_de_Santa_Catalina_en_Arequipa.jpg/1280px-Monasterio_de_Santa_Catalina_en_Arequipa.jpg',
+                'imagen_url' => 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Monasterio%20de%20Santa%20Catalina%2C%20Arequipa.jpg?width=1600',
                 'calificacion' => 4.70,
             ],
             [
@@ -51,7 +51,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Sachaca',
                 'latitud' => -16.4267,
                 'longitud' => -71.5591,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Mirador_de_Sachaca.jpg/1280px-Mirador_de_Sachaca.jpg',
+                'imagen_url' => 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mirador%20de%20Sachaca.jpg?width=1600',
                 'calificacion' => 4.30,
             ],
             [
@@ -62,7 +62,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Arequipa',
                 'latitud' => -16.4027,
                 'longitud' => -71.5337,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mercado_San_Camilo.jpg/1280px-Mercado_San_Camilo.jpg',
+                'imagen_url' => 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mercado%20de%20San%20Camilo%2001.jpg?width=1600',
                 'calificacion' => 4.40,
             ],
             [
@@ -73,7 +73,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Yanahuara',
                 'latitud' => -16.3892,
                 'longitud' => -71.5508,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Arequipa_desde_Yanahuara.jpg/1280px-Arequipa_desde_Yanahuara.jpg',
+                'imagen_url' => 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Vista%20desde%20el%20mirador%20de%20Yanahuara%20en%20Arequipa.jpg?width=1600',
                 'calificacion' => 4.60,
             ],
             [
@@ -84,7 +84,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'Arequipa',
                 'latitud' => -16.4211,
                 'longitud' => -71.5298,
-                'imagen_url' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mall_Aventura_Arequipa.jpg/1280px-Mall_Aventura_Arequipa.jpg',
+                'imagen_url' => 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1600&q=80',
                 'calificacion' => 4.20,
             ],
             [
@@ -95,7 +95,7 @@ class DestinoSeeder extends Seeder
                 'distrito' => 'José Luis Bustamante y Rivero',
                 'latitud' => -16.4419,
                 'longitud' => -71.5142,
-                'imagen_url' => null,
+                'imagen_url' => 'https://www.tecsup.edu.pe/wp-content/uploads/2024/07/WEB_SEDE-SUR-1.jpg',
                 'calificacion' => 4.00,
             ],
         ];
@@ -105,3 +105,4 @@ class DestinoSeeder extends Seeder
         }
     }
 }
+
