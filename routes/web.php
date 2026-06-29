@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\RutaAdminController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\HomeController;
@@ -15,6 +17,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware('guest')->group(function () {
     Route::get('/ingresar', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/ingresar', [LoginController::class, 'login']);
+
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+
     Route::get('/crear-cuenta', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/crear-cuenta', [RegisterController::class, 'register']);
 });
@@ -44,3 +52,4 @@ Route::middleware('auth')->prefix('perfil')->name('perfil.')->group(function () 
 Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('rutas', RutaAdminController::class);
 });
+

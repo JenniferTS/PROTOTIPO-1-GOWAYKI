@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('destinos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('tagline', 120)->nullable()->after('nombre');
+            $table->string('tagline', 120)->nullable();
             $table->text('descripcion');
             $table->enum('categoria', ['turistico', 'cultural', 'gastronomico', 'recreativo', 'historico']);
             $table->string('distrito');
