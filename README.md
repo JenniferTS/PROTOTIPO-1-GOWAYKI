@@ -1,4 +1,4 @@
-# GoWayki — Transporte inteligente en Arequipa
+# Proyecto Integrador GoWayki — Transporte inteligente en Arequipa
 
 Plataforma web de movilidad urbana para Arequipa, Perú. Permite consultar rutas de transporte público, explorar destinos turísticos, planificar recorridos personalizados y gestionar el contenido desde un panel administrativo.
 
