@@ -1,9 +1,9 @@
 import React from 'react';
 
-/**
- * Panel lateral izquierdo: timeline vertical de paraderos.
- * Muestra imagen real cuando existe y un ícono referencial cuando no hay foto confiable.
- */
+const obtenerImagen = (paradero) => {
+  return paradero.imagen_url || paradero.imagenUrl || paradero.fotoUrl || null;
+};
+
 export default function ParaderoTimeline({ paraderos, paraderoActivoId, onSeleccionarParadero }) {
   if (!paraderos || paraderos.length === 0) {
     return (
@@ -12,10 +12,6 @@ export default function ParaderoTimeline({ paraderos, paraderoActivoId, onSelecc
       </div>
     );
   }
-
-  const obtenerImagen = (paradero) => {
-    return paradero.imagen_url || paradero.imagenUrl || paradero.fotoUrl || null;
-  };
 
   return (
     <div className="h-full overflow-y-auto px-4 py-3" style={{ maxHeight: '600px' }}>

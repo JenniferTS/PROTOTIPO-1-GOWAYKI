@@ -31,10 +31,11 @@ class RecorridoController extends Controller
             $resultado = $this->recorridoService->planificar($request->origen, $request->destino);
         }
 
-        $origenes = $this->rutaService->listarOrigenes();
-        $destinos = $this->rutaService->listarDestinos();
+        $todosParaderos = \App\Models\Paradero::orderBy('ruta_id')->orderBy('orden')
+            ->select('id', 'nombre', 'ruta_id', 'latitud', 'longitud', 'imagen', 'imagen_url')
+            ->get();
 
-        return view('recorridos.planificar', compact('resultado', 'request', 'origenes', 'destinos'));
+        return view('recorridos.planificar', compact('resultado', 'request', 'todosParaderos'));
     }
 
     public function guardar(RecorridoRequest $request): RedirectResponse

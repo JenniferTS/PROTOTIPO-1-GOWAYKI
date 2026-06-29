@@ -32,7 +32,11 @@ class RutaController extends Controller
             $degradado = $resultado['degradado'];
         }
 
-        return view('rutas.index', compact('rutas', 'request', 'degradado'));
+        $todosParaderos = \App\Models\Paradero::orderBy('ruta_id')->orderBy('orden')
+            ->select('id', 'nombre', 'ruta_id', 'latitud', 'longitud', 'imagen', 'imagen_url')
+            ->get();
+
+        return view('rutas.index', compact('rutas', 'request', 'degradado', 'todosParaderos'));
     }
 
     public function show(int $id): View
@@ -48,6 +52,10 @@ class RutaController extends Controller
             ]);
         }
 
-        return view('rutas.show', compact('ruta'));
+        $todosParaderos = \App\Models\Paradero::orderBy('ruta_id')->orderBy('orden')
+            ->select('id', 'nombre', 'ruta_id', 'latitud', 'longitud', 'imagen', 'imagen_url')
+            ->get();
+
+        return view('rutas.show', compact('ruta', 'todosParaderos'));
     }
 }

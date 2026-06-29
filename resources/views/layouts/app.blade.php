@@ -37,7 +37,7 @@
                                 <a href="{{ route('recorridos.miRuta') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34] rounded-t-lg">Mi Ruta</a>
                                 <a href="{{ route('perfil.progreso') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34]">Mi Progreso</a>
                                 @can('admin')
-                                    <a href="{{ route('admin.rutas.index') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34]">Admin</a>
+                                    <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-gray-700 hover:bg-[#FFF3F2] hover:text-[#F83A34]">Admin</a>
                                 @endcan
                                 <form method="POST" action="{{ route('logout') }}" class="block">
                                     @csrf
@@ -66,7 +66,7 @@
                 <a href="{{ route('recorridos.miRuta') }}" class="block text-white py-2 font-medium">Mi Ruta</a>
                 <a href="{{ route('perfil.progreso') }}" class="block text-white py-2 font-medium">Mi Progreso</a>
                 @can('admin')
-                    <a href="{{ route('admin.rutas.index') }}" class="block text-white py-2 font-medium">Admin</a>
+                    <a href="{{ route('admin.dashboard') }}" class="block text-white py-2 font-medium">Admin</a>
                 @endcan
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -91,7 +91,7 @@
         </div>
     @endif
 
-    <main>
+    <main class="pt-16">
         @yield('content')
     </main>
 

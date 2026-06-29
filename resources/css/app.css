@@ -41,10 +41,15 @@
     @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden;
 }
 
-/* Navbar */
+/* Navbar fixed */
 .navbar-gowayki {
     background-color: var(--color-gowayki-primary);
     color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Textos de marca */

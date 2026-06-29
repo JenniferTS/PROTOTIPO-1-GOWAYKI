@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminParaderoController;
+use App\Http\Controllers\Admin\AdminRecorridoController;
+use App\Http\Controllers\Admin\AdminUsuarioController;
 use App\Http\Controllers\Admin\RutaAdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -50,6 +54,10 @@ Route::middleware('auth')->prefix('perfil')->name('perfil.')->group(function () 
 });
 
 Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/usuarios', [AdminUsuarioController::class, 'index'])->name('usuarios');
+    Route::get('/recorridos', [AdminRecorridoController::class, 'index'])->name('recorridos');
     Route::resource('rutas', RutaAdminController::class);
+    Route::resource('paraderos', AdminParaderoController::class);
 });
 

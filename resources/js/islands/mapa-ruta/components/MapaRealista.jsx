@@ -95,7 +95,7 @@ export default function MapaRealista({ paraderos, colorLinea = '#3498DB', onPara
                   src={p.fotoUrl}
                   alt={p.nombre}
                   className="w-full h-20 object-cover rounded mb-2"
-                  onError={(e) => { e.currentTarget.src = '/images/paraderos/default.jpg'; }}
+                  onError={(e) => { e.currentTarget.src = '/images/paraderos/default.svg'; }}
                 />
                 <p className="font-bold text-sm">{p.nombre}</p>
                 <p className="text-xs text-gray-500">{p.tiempoEstimadoMin} min desde el origen</p>

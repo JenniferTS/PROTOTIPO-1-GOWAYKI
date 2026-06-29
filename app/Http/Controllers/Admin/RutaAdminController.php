@@ -35,6 +35,11 @@ class RutaAdminController extends Controller
             ->with('success', 'Ruta creada correctamente.');
     }
 
+    public function show(Ruta $ruta): RedirectResponse
+    {
+        return redirect()->route('admin.rutas.edit', $ruta);
+    }
+
     public function edit(Ruta $ruta): View
     {
         return view('admin.rutas.edit', compact('ruta'));

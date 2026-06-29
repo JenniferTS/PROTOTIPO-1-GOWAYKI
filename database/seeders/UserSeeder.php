@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin GoWayki',
             'email' => 'admin@gowayki.com',
             'password' => Hash::make('GoWayki2025!'),
+            'role' => 'admin',
             'notificaciones_activas' => true,
         ]);
     }

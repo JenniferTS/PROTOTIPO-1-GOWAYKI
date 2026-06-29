@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\RutaCortaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/status', fn() => response()->json(['status' => 'GoWayki API activa']));
+Route::get('/ruta-corta', RutaCortaController::class);

@@ -13,6 +13,8 @@ class Paradero extends Model
         'latitud',
         'longitud',
         'orden',
+        'imagen',
+        'imagen_url',
     ];
 
     protected $casts = [
