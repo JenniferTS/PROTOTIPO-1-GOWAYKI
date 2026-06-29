@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
+use Database\Factories\RutaFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Ruta extends Model
 {
+    /** @use HasFactory<RutaFactory> */
+    use HasFactory;
+
     protected $table = 'rutas';
 
     protected $fillable = [

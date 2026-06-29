@@ -33,6 +33,14 @@ Este repositorio se clonó de [`fabriciorojas-10/PROTOTIPO-1-GOWAYKI-FABRICIO`](
 - Se migró la configuración de `.env` de SQLite a MySQL: `DB_CONNECTION=mysql`, `DB_DATABASE=gowayki_db`.
 - Se cambiaron drivers que dependían de tablas de base de datos: `SESSION_DRIVER=file`, `QUEUE_CONNECTION=sync`, `CACHE_STORE=file`.
 
+### Implementaciones para proyecto final de Base de Datos
+- **HasOne**: Relación 1:1 entre `users` y `user_profiles` (perfil extendido con bio, teléfono, puntaje de exploración).
+- **Factories**: Creadas para todos los modelos (Ruta, Paradero, Destino, Recorrido, LugarVisitado, UserProfile).
+- **Massive seeders**: 50 usuarios, 20 rutas adicionales (inactivas), 30 destinos adicionales (inactivos), 100 recorridos, +100 lugares visitados usando factories.
+- **Trigger** `trg_incrementar_puntaje_exploracion`: AFTER INSERT en `lugares_visitados`, suma 10 puntos al `puntaje_exploracion` del usuario.
+- **Stored Procedure** `sp_reporte_actividad_usuario`: Recibe user_id + rango de fechas, retorna total de recorridos, lugares visitados y puntaje.
+- **MER y diccionario de relaciones**: Documentados en `docs/MER.md`.
+
 ## Estructura del proyecto
 
 ```

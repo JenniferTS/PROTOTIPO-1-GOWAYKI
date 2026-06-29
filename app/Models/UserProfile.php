@@ -2,36 +2,32 @@
 
 namespace App\Models;
 
-use Database\Factories\LugarVisitadoFactory;
+use Database\Factories\UserProfileFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class LugarVisitado extends Model
+class UserProfile extends Model
 {
-    /** @use HasFactory<LugarVisitadoFactory> */
+    /** @use HasFactory<UserProfileFactory> */
     use HasFactory;
-
-    protected $table = 'lugares_visitados';
 
     protected $fillable = [
         'user_id',
-        'destino_id',
-        'fecha_visita',
-        'notas',
+        'bio',
+        'telefono',
+        'direccion',
+        'fecha_nacimiento',
+        'puntaje_exploracion',
     ];
 
     protected $casts = [
-        'fecha_visita' => 'date',
+        'fecha_nacimiento' => 'date',
+        'puntaje_exploracion' => 'integer',
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function destino(): BelongsTo
-    {
-        return $this->belongsTo(Destino::class);
     }
 }

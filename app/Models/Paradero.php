@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
+use Database\Factories\ParaderoFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Paradero extends Model
 {
+    /** @use HasFactory<ParaderoFactory> */
+    use HasFactory;
+
     protected $fillable = [
         'ruta_id',
         'nombre',

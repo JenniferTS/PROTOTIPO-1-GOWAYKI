@@ -6,6 +6,7 @@ use App\Notifications\ResetPasswordNotification;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -35,6 +36,11 @@ class User extends Authenticatable
             'password' => 'hashed',
             'notificaciones_activas' => 'boolean',
         ];
+    }
+
+    public function perfil(): HasOne
+    {
+        return $this->hasOne(UserProfile::class, 'user_id');
     }
 
     public function lugaresVisitados(): HasMany
