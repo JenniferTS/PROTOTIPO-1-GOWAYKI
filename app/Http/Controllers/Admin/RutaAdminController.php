@@ -8,6 +8,8 @@ use App\Models\Ruta;
 use App\Services\RutaService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RutaAdminController extends Controller
 {
@@ -47,6 +49,10 @@ class RutaAdminController extends Controller
 
     public function update(RutaRequest $request, Ruta $ruta): RedirectResponse
     {
+        // Establecer variable de sesión para el trigger de auditoría
+        // trg_auditoria_rutas_update capturará el usuario que modificó
+        DB::statement('SET @current_user_id = ?', [Auth::id()]);
+
         $ruta->update($request->validated());
 
         return redirect()
@@ -56,6 +62,10 @@ class RutaAdminController extends Controller
 
     public function destroy(Ruta $ruta): RedirectResponse
     {
+        // Establecer variable de sesión para el trigger de auditoría
+        // trg_auditoria_rutas_delete capturará el usuario que eliminó
+        DB::statement('SET @current_user_id = ?', [Auth::id()]);
+
         $ruta->delete();
 
         return redirect()

@@ -6,6 +6,7 @@ use App\Exceptions\GoWaykiServiceException;
 use App\Models\Destino;
 use App\Models\LugarVisitado;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ProgresoService
@@ -36,7 +37,13 @@ class ProgresoService
 
     public function marcarVisitado(User $user, int $destinoId, array $datos = []): LugarVisitado
     {
-        try {
+        // Transacción explícita: esta operación inserta en lugares_visitados,
+        // lo que dispara el trigger trg_incrementar_puntaje_exploracion
+        // (actualiza user_profiles.puntaje_exploracion) y el trigger
+        // trg_incrementar_total_visitas_destino (actualiza destinos.total_visitas).
+        // La transacción garantiza atomicidad: si alguna actualización
+        // falla, todo se revierte.
+        return DB::transaction(function () use ($user, $destinoId, $datos) {
             $existe = LugarVisitado::where('user_id', $user->id)
                 ->where('destino_id', $destinoId)
                 ->exists();
@@ -53,12 +60,7 @@ class ProgresoService
             $lugar->save();
 
             return $lugar;
-        } catch (GoWaykiServiceException $e) {
-            throw $e;
-        } catch (\Throwable $e) {
-            Log::error('Error al marcar visitado: ' . $e->getMessage(), ['exception' => $e]);
-            throw new GoWaykiServiceException('No pudimos guardar tu visita. Intenta nuevamente.');
-        }
+        });
     }
 
     public function desmarcarVisitado(User $user, int $destinoId): bool
